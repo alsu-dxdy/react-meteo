@@ -6,6 +6,7 @@
   color: white;
   padding: 22px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .place-card__description-temperature {
@@ -15,6 +16,7 @@
   align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid #f5f4f4;
+  margin-bottom: 20px;
 }
 
 .place-card__description-wind {
@@ -26,28 +28,34 @@
 
 .place-card__name {
   font-size: 24px;
+  margin: 0 0 20px;
 }
 
 .place-card__current-tempetature {
   font-size: 36px;
   font-weight: 900;
   margin: 18px 0;
+  margin: 0 0 20px;
+}
+
+.place-card__text {
+  margin: 0 0 20px;
 }
 
 .place-card__delete-icon {
-  /* background: url(../../../images/trash-icon.svg) center no-repeat; */
+  background: url(../../images/trash-icon.svg) center no-repeat;
   background-color: transparent;
   border: none;
   width: 18px;
   height: 20px;
   position: absolute;
-  top: 18px;
-  right: 15px;
+  bottom: 22px;
+  right: 22px;
   cursor: pointer;
   display: none;
-  /*display: block;*/
-}
-
-.place-card__delete-icon.place-card__delete-icon_visible {
   display: block;
 }
+
+/* .place-card__delete-icon.place-card__delete-icon_visible {
+  display: block;
+} */
