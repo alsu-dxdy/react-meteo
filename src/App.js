@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
@@ -33,6 +34,7 @@ function App() {
   console.log(currentForecasts);
   return (
     <div className="root">
+      <Header />
       <Main currentForecasts={currentForecasts} />
       <Footer />
     </div>
