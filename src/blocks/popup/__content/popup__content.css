@@ -6,6 +6,7 @@
   position: relative;
   box-sizing: border-box;
   padding: 34px 36px;
+  color: #80a7f0;
 }
 
 @media screen and (max-width: 540px) {
