@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Main from './components/Main';
+import Footer from './components/Footer';
+
+import {
+  apiCurrentWeather,
+  apiForecast5days
+} from './utils/API';
+
+import './index.css';
 
 function App() {
+  // const [places, setPlaces] = React.useState([]);
+  const [currentForecasts, setCurrentWeather] = React.useState([]);
+  React.useEffect(() => {
+    Promise.all([
+      apiCurrentWeather.getCurrentWeather('Уфа'),
+      apiCurrentWeather.getCurrentWeather('Пермь'),
+      apiForecast5days.getCurrentWeather('Уфа')])
+      .then(
+        ([currentTempUfa, currentTempPerm, forecast5daysData]) => {
+          console.log(currentTempUfa);
+          console.log(currentTempPerm);
+          // добавление текущих прогнозов в массив:
+          setCurrentWeather([...currentForecasts, currentTempUfa, currentTempPerm]);
+          console.log(22);
+          console.log(currentForecasts);
+
+        }
+      )
+  }, []);
+  console.log(22);
+  console.log(currentForecasts);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="root">
+      <Main currentForecasts={currentForecasts} />
+      <Footer />
     </div>
+
   );
 }
 

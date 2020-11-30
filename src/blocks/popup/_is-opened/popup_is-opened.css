@@ -1,0 +1,15 @@
+.popup_type_add-place.popup_is-opened {
+  display: flex;
+}
+
+.popup_type_edit-profile.popup_is-opened {
+  display: flex;
+}
+
+.popup_type_avatar.popup_is-opened {
+  display: flex;
+}
+
+.popup_image.popup_is-opened {
+  display: flex;
+}

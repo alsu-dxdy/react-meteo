@@ -1,0 +1,53 @@
+.place-card {
+  width: 282px;
+  background-color: #80a7f0;
+  border-radius: 10px;
+  min-height: 360px;
+  color: white;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+.place-card__description-temperature {
+  display: flex;
+  flex-direction: column;
+  min-height: 78px;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f5f4f4;
+}
+
+.place-card__description-wind {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.place-card__name {
+  font-size: 16px;
+}
+
+.place-card__current-tempetature {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 18px 0;
+}
+
+.place-card__delete-icon {
+  /* background: url(../../../images/trash-icon.svg) center no-repeat; */
+  background-color: transparent;
+  border: none;
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+  /*display: block;*/
+}
+
+.place-card__delete-icon.place-card__delete-icon_visible {
+  display: block;
+}
