@@ -9,6 +9,7 @@ function AddForecastPopup(props) {
         props.onAddForecastSubmit({
             name: inputNameRef.current.value,
         });
+        inputNameRef.current.value = '';
     }
     return (
         /* popup Новое место */
