@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 
 function Main(props) {
-    console.log(33);
+    console.log('Main');
     console.log(props.currentForecasts);
     // const cardId = new Date().getTime(); // для уникального id
     return (
