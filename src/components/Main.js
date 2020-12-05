@@ -3,14 +3,13 @@ import Card from './Card';
 
 function Main(props) {
     console.log('Main');
-    console.log(props.currentForecasts);
-    // const cardId = new Date().getTime(); // для уникального id
+    const { currentForecasts, removeForecast } = props;
     return (
         <div>
             <div className="places-list root__section">
                 {
-                    props.currentForecasts.map(item =>
-                        <Card key={item.id} card={item} />
+                    currentForecasts.map(item =>
+                        <Card key={item.id} id={item.id} card={item} removeForecast={removeForecast} />
                     )
                 }
             </div>

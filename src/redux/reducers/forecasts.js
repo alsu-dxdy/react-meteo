@@ -12,9 +12,9 @@ const currentForecasts = (state = CURRENTFORECASTS, { id, card, type }) => {
                     card
                 }
             ];
-        // case REMOVE_FORECAST:
-        //     // возвращаем только несовпадения с полученным id
-        //     return [...state].filter(forecast => forecast.id !== id);
+        case REMOVE_FORECAST:
+            // возвращаем только несовпадения с полученным id
+            return [...state].filter(forecast => forecast.id !== id);
 
         default:
             return state;

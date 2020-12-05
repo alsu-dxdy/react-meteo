@@ -27,11 +27,15 @@ function App(props) {
 
   function handleAddPForecastApi(data) {
     Promise.all([
+      // Два запроса: текущий прогноз и прогноз на 5 дней
       apiCurrentWeather.getCurrentWeather(data.name),
       apiForecast5days.getCurrentWeather(data.name)])
       .then((currentForecastData) => {
+        // Сейчас currentForecastData - это массив с 2 объектами: теущий прогноз и прогнозы на 5 дней
+        // Далее необходимо сформировать один объект для экшена addForecast, а именно:
+        //  в объект с текущим прогнозом добавить массив объектов с прогнозами на 5 дней вперед
         const startMs = Date.now(); // сегодня в мс
-        let dateToday = new Date(startMs); //создать из мс объект
+        let dateToday = new Date(startMs); //создать из мс объект даты
         // В next5Forecasts оставляем прогнозы только на следующие 5 дней
         const next5Forecasts = currentForecastData[1].list.filter(item => +item.dt_txt.slice(8, 10) !== +dateToday.getDate());
 
@@ -54,12 +58,12 @@ function App(props) {
       });
 
   }
-  const { currentForecasts } = props;
-  console.log(currentForecasts);
+  // currentForecasts - это массив объ со св-ми id, card
+  const { currentForecasts, removeForecast } = props;
   return (
     <Fragment>
       <Header onAddForecast={handleAddForecastClick} />
-      <Main currentForecasts={currentForecasts} />
+      <Main currentForecasts={currentForecasts} removeForecast={removeForecast} />
 
       {      /* popup Новый прогноз */}
       <AddForecastPopup isOpen={isAddForecastPopupOpen} onClose={closeAllPopups}

@@ -2,8 +2,10 @@ import React from 'react';
 
 function Card(props) {
     console.log('Card');
-    console.log(props.card.card);
+
     const { name, main, weather, wind } = props.card.card;
+    const { removeForecast } = props;
+    const { id } = props;
 
     // Функция, возвращающая ту же строку с Заглавной буквы:
     function capitalize(str) {
@@ -25,7 +27,7 @@ function Card(props) {
                 <p className="place-card__text">{`Ветер:  ${Math.round(wind.speed)}м/с`}</p>
                 <p className="place-card__text">{`Влажность: ${main.humidity}%`}</p>
             </div>
-            <button className="place-card__delete-icon"></button>
+            <button onClick={() => removeForecast(id)} className="place-card__delete-icon"></button>
 
         </div >
     );
