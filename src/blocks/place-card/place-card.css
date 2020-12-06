@@ -9,6 +9,13 @@
   position: relative;
 }
 
+.place-card_mini {
+  min-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .place-card__description-temperature {
   display: flex;
   flex-direction: column;

@@ -1,10 +1,8 @@
 import React from 'react';
 
 function Card(props) {
-    console.log('Card');
-
-    const { name, main, weather, wind } = props.card.card;
-    const { removeForecast } = props;
+    const { name, main, weather, wind, futureForecasts } = props.card.card;
+    const { removeForecast, onCardClick } = props;
     const { id } = props;
 
     // Функция, возвращающая ту же строку с Заглавной буквы:
@@ -13,8 +11,12 @@ function Card(props) {
         return str;
     }
 
+    function handleClick() {
+        onCardClick(futureForecasts);
+    }
+
     return (
-        <div className="place-card">
+        <div onClick={handleClick} className="place-card">
 
             <div className="place-card__description-temperature">
                 <h3 className="place-card__name">{name}</h3>

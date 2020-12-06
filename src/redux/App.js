@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { addForecast, removeForecast } from './actions/actionCreator';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import AddForecastPopup from '../components/AddForecastPopup';
+import PopupDailyForecast from '../components/PopupDailyForecast';
 import Footer from '../components/Footer';
 
 import {
@@ -16,13 +17,25 @@ import '../index.css';
 
 function App(props) {
   const [isAddForecastPopupOpen, setisAddForecastPopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = useState({
+    isImageOpen: false,
+    array: [],
+  });
 
   function handleAddForecastClick() {
     setisAddForecastPopupOpen(!isAddForecastPopupOpen);
   }
 
+  function handleCardClick(arr) {
+    setSelectedCard({ isImageOpen: true, array: arr });
+  }
+
   function closeAllPopups() {
     setisAddForecastPopupOpen(false);
+    setSelectedCard({
+      isImageOpen: false,
+      array: [],
+    });
   }
 
   function handleAddPForecastApi(data) {
@@ -63,12 +76,21 @@ function App(props) {
   return (
     <Fragment>
       <Header onAddForecast={handleAddForecastClick} />
-      <Main currentForecasts={currentForecasts} removeForecast={removeForecast} />
+      <Main
+        currentForecasts={currentForecasts}
+        removeForecast={removeForecast}
+        onCardClick={handleCardClick} />
 
       {      /* popup Новый прогноз */}
-      <AddForecastPopup isOpen={isAddForecastPopupOpen} onClose={closeAllPopups}
+      <AddForecastPopup
+        isOpen={isAddForecastPopupOpen}
+        onClose={closeAllPopups}
         onAddForecastSubmit={handleAddPForecastApi} />
-
+      <PopupDailyForecast
+        array={selectedCard.array}
+        onClose={closeAllPopups}
+        isOpen={selectedCard.isImageOpen}
+      />
       <Footer />
     </Fragment>
 
