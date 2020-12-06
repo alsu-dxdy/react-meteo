@@ -5,13 +5,13 @@ function Minicard(props) {
     const { dt, dt_txt, main, wind } = props.minicard;
 
     const days = [
-        'Воскресенье',
-        'Понедельник',
-        'Вторник',
-        'Среда',
-        'Четверг',
-        'Пятница',
-        'Суббота'
+        'Вс',
+        'Пн',
+        'Вт',
+        'Ср',
+        'Чт',
+        'Пт',
+        'Сб'
     ];
     const d = new Date(dt * 1000);
     const n = d.getDay();
@@ -19,21 +19,16 @@ function Minicard(props) {
 
     const numberDay = +(new Date(dt * 1000)).getDate();
 
-    const months = 'января,февраля,марта,апреля,мая,июня,июля,августа,сентября,октября,ноября,декабря'.split(',');
+    const months = 'янв,фев,мар,апр,мая,июня,июля,авг,сен,окт,ноя,дек'.split(',');
     const numberMohth = dt_txt.slice(5, 7);
     const monthRus = months[numberMohth - 1];
 
     return (
         <div className="place-card place-card_mini">
-            <div className="place-card__date-block">
-                <p className="place-card__text">{`${numberDay} ${monthRus}`}</p>
-                <p className="place-card__text">{weekDay}</p>
-            </div>
-
-            <div className="place-card__weather-block">
-                <p className="place-card__current-tempetature">{`${Math.round(main.temp)}°`}</p>
-                <p className="place-card__text">{`${Math.round(wind.speed)}м/с`}</p>
-            </div>
+            <p className="place-card__text place-card__text_weekday">{weekDay}</p>
+            <p className="place-card__text">{`${numberDay} ${monthRus}`}</p>
+            <p className="place-card__current-tempetature">{`${Math.round(main.temp)}°`}</p>
+            <p className="place-card__text">{`${Math.round(wind.speed)}м/с`}</p>
         </div >
     );
 }

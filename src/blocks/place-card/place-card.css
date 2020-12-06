@@ -12,8 +12,10 @@
 .place-card_mini {
   min-height: 50px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  flex-basis: 94px;
+  /* justify-content: space-between;
+  align-items: center; */
 }
 
 .place-card__description-temperature {
@@ -63,6 +65,35 @@
   display: block;
 }
 
-/* .place-card__delete-icon.place-card__delete-icon_visible {
-  display: block;
-} */
+.place-card-content {
+  width: 100%;
+}
+
+.popup__content_minicards {
+  width: 55%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 16px;
+  background-color: #80a7f0;
+}
+
+@media screen and (min-width: 880px) {
+  .popup__content_minicards {
+    /* width: calc(100% - 60px); */
+    width: 485px;
+  }
+}
+
+.miniplaces-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.place-card__text_weekday {
+  font-size: 18px;
+  line-height: 22px;
+  font-family: 'YS Text', Helvetica Neue, Arial;
+  font-weight: 400;
+  /* color: #222426; */
+}

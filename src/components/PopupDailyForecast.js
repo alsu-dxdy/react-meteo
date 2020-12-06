@@ -7,13 +7,13 @@ function PopupDailyForecast(props) {
 
     return (
         <div className={`popup popup_image ${isOpen && 'popup_is-opened'} `} >
-            <div className="popup__content popup__content_minicards">
+            <div className=" popup__content_minicards">
                 <img onClick={onClose}
                     src={close}
                     alt="Закрыть"
                     className="popup__close"
                 />
-                <div className="places-list">
+                <div className="miniplaces-list">
                     {array.map(item =>
                         <Minicard
                             key={item.dt}
