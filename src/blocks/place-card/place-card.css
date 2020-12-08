@@ -13,8 +13,9 @@
   min-height: 50px;
   display: flex;
   flex-direction: column;
-  flex-basis: 94px;
+  /* flex-basis: 94px; */
   background-color: #80a7f0;
+  width: 94px;
   /* justify-content: space-between;
   align-items: center; */
 }
@@ -71,19 +72,13 @@
 }
 
 .popup__content_minicards {
-  width: 55%;
+  width: auto;
   position: relative;
   box-sizing: border-box;
   padding: 20px;
   font-size: 16px;
   background-color: #80a7f0;
   border-radius: 10px;
-}
-
-@media screen and (min-width: 880px) {
-  .popup__content_minicards {
-    width: 595px;
-  }
 }
 
 .miniplaces-list {
@@ -96,5 +91,30 @@
   line-height: 22px;
   font-family: 'YS Text', Helvetica Neue, Arial;
   font-weight: 400;
-  /* color: #222426; */
+}
+
+@media screen and (max-width: 590px) {
+  .popup__content_minicards {
+    width: auto;
+    padding: 15px;
+  }
+  .place-card__text_popup {
+    margin: 0 0 10px;
+  }
+  .place-card_mini {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .place-card__current-tempetature_popup {
+    font-size: 24px;
+  }
+  .popup__close {
+    top: 0;
+    right: 0;
+  }
+  .miniplaces-list {
+    justify-content: center;
+  }
 }

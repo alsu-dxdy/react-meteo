@@ -26,8 +26,8 @@ function Minicard(props) {
     return (
         <div className="place-card place-card_mini">
             <p className="place-card__text place-card__text_weekday">{weekDay}</p>
-            <p className="place-card__text">{`${numberDay} ${monthRus}`}</p>
-            <p className="place-card__current-tempetature">{`${Math.round(main.temp)}°`}</p>
+            <p className="place-card__text place-card__text_popup">{`${numberDay} ${monthRus}`}</p>
+            <p className="place-card__current-tempetature place-card__current-tempetature_popup">{`${Math.round(main.temp)}°`}</p>
             <p className="place-card__text">{`${Math.round(wind.speed)}м/с`}</p>
         </div >
     );
