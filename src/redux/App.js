@@ -38,6 +38,12 @@ function App(props) {
     });
   }
 
+  // Закрытие попапа Новый прогноз: клик вне контента
+  function closePopupFormClickOutContent(e) {
+    if (e.target.closest('.popup__content') == null) {
+      closeAllPopups();
+    }
+  }
   // Закрытие попапа с прогнозами на последующие дни: клик вне контента
   function closePopupDailyForecastClickOutContent(e) {
     if (e.target.closest('.popup__content_minicards') == null) {
@@ -92,7 +98,8 @@ function App(props) {
       <AddForecastPopup
         isOpen={isAddForecastPopupOpen}
         onClose={closeAllPopups}
-        onAddForecastSubmit={handleAddPForecastApi} />
+        onAddForecastSubmit={handleAddPForecastApi}
+        closePopupFormClickOutContent={closePopupFormClickOutContent} />
       <PopupDailyForecast
         array={selectedCard.array}
         onClose={closeAllPopups}

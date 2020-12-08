@@ -18,6 +18,7 @@ function AddForecastPopup(props) {
             name="add-place"
             isOpen={props.isOpen}
             onClose={props.onClose}
+            closePopupFormClickOutContent={props.closePopupFormClickOutContent}
             children={
                 <form className="popup__form" name="new_place">
                     <div className="input-container">
