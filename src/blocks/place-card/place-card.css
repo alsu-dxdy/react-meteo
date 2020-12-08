@@ -82,8 +82,7 @@
 
 @media screen and (min-width: 880px) {
   .popup__content_minicards {
-    /* width: calc(100% - 60px); */
-    width: 485px;
+    width: 595px;
   }
 }
 
