@@ -38,6 +38,13 @@ function App(props) {
     });
   }
 
+  // Закрытие попапа с прогнозами на последующие дни: клик вне контента
+  function closePopupDailyForecastClickOutContent(e) {
+    if (e.target.closest('.popup__content_minicards') == null) {
+      closeAllPopups();
+    }
+  }
+
   function handleAddPForecastApi(data) {
     Promise.all([
       // Два запроса: текущий прогноз и прогноз на 5 дней
@@ -90,6 +97,7 @@ function App(props) {
         array={selectedCard.array}
         onClose={closeAllPopups}
         isOpen={selectedCard.isImageOpen}
+        closePopupDailyForecastClickOutContent={closePopupDailyForecastClickOutContent}
       />
       <Footer />
     </Fragment>
